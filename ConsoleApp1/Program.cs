@@ -12,7 +12,7 @@ namespace ConsoleApp1
 		static void Main(string[] args)
 		{
 			var obj = new TaiwainStockUtility();
-			DateTime dateTime = new DateTime(2022,10,23,12,22,22);
+			DateTime dateTime = new DateTime(2022,10,23,13,31,22);
 			bool canTrade = obj.IsTradingTime(dateTime);
 			Console.WriteLine(canTrade);
 		}

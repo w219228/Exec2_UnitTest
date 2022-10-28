@@ -25,8 +25,8 @@ namespace Ispan.Utilities
 		}
 		public virtual bool isTrade(DateTime dt)
 		{
-			int todayTime = dt.Hour;
-			return (todayTime < 9 || todayTime > 13) ? false : true;
+			int todayTime = dt.Hour*100+dt.Minute;
+			return (todayTime < 9 || todayTime > 1330) ? false : true;
 		}
 	}
 }
