@@ -11,22 +11,20 @@ namespace Ispan.Utilities
 	{
 		public virtual bool IsTradingTime(DateTime dt)
 		{
-			bool ordinary = isOrdinary(dt);
-			bool trade = isTrade(dt);
-			return (ordinary && trade)?true:false;
-
-			
+			bool ordinary = IsOrdinary(dt);
+			bool trade = IsTrade(dt);
+			return (ordinary && trade)?true:false;	
 		}
-		public virtual bool isOrdinary(DateTime dt)
+		public virtual bool IsOrdinary(DateTime dt)
 		{
 			DayOfWeek week = dt.DayOfWeek;
 			int value = (int)week;
 			return (value == 6 || value == 0) ? false : true;
 		}
-		public virtual bool isTrade(DateTime dt)
+		public virtual bool IsTrade(DateTime dt)
 		{
-			int todayTime = dt.Hour*100+dt.Minute;
-			return (todayTime < 9 || todayTime > 1330) ? false : true;
+			double todayTime = dt.Hour*100+dt.Minute+dt.Second*0.01;
+			return (todayTime < 900 || todayTime > 1330) ? false : true;
 		}
 	}
 }
