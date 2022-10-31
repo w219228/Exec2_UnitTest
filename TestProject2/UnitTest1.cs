@@ -28,13 +28,13 @@ namespace TestProject2
 			Assert.AreEqual(false, result);
 		}
 		[Test]
-		public void IsTradingTime_在星期一到五()
+		public void IsTradingTime_在星期一到五九點以前或一點半後()
 		{
 			var stock = new TaiwainStockUtility();
-			DateTime dateTime = new DateTime(2022, 10, 24, 13, 29, 59);
+			DateTime dateTime = new DateTime(2022, 10, 24, 13, 30, 59);
 			bool result = stock.IsTradingTime(dateTime);
 
-			Assert.AreEqual(true, result);
+			Assert.AreEqual(false, result);
 		}
 	}
 }
